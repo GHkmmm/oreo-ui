@@ -1,6 +1,6 @@
 <template>
-  <button class="or-switch" @click="toggle" :class="{actived: isOn}">
-    <span class="circle"></span>
+  <button class="or-switch" @click="toggle" :class="{'or-actived': isOn}">
+    <span></span>
   </button>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 <style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.or-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -48,14 +48,14 @@ button {
   }
 }
 
-button.actived {
+.or-switch.or-actived {
   background: #28a745;
   span {
     left: calc(100% - #{$h2} - 2px);
   }
 }
 
-button:focus {
+.or-switch:focus {
   outline: none;
 }
 </style>
