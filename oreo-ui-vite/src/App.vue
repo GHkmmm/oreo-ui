@@ -1,15 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+  <div>
+    <tab-nav />
+    <router-view />
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import TabNav from './components/TabNav.vue';
+import { provide, ref } from 'vue';
+import router from './router';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TabNav
+  },
+  setup() {
+    const width = document.documentElement.clientWidth;
+    const menuVisible = ref(width <= 740 ? false : true)
+    provide('xxx', menuVisible) // 标记为所有后代均可使用menuVisible这个变量
+    router.afterEach(()=>{
+      if(width<=740){
+        menuVisible.value = false
+      }
+    })
   }
 }
 </script>
+
+<style lang="scss" scoped>
+</style>
