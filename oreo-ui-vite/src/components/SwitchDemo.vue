@@ -1,6 +1,6 @@
 <template>
   <div>
-    <or-switch v-model:isOn="isOn"/>
+    <or-switch v-model:is-on="isOn"/>
   </div>
 </template>
 

@@ -35,22 +35,27 @@ button {
   background: #eee;
   border-radius: $h/2;
   position: relative;
-}
-span{
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: $h2;
-  width: $h2;
-  background: white;
-  border-radius: $h2/2;
+  transition: .4s;
+  span{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: $h2;
+    width: $h2;
+    background: white;
+    border-radius: $h2/2;
+    transition: .4s;
+  }
 }
 
-button:hover {
-  background: #00d45b;
+button.actived {
+  background: #28a745;
   span {
     left: calc(100% - #{$h2} - 2px);
-    transition: .3s;
   }
+}
+
+button:focus {
+  outline: none;
 }
 </style>
