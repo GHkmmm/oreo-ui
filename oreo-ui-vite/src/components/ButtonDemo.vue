@@ -1,7 +1,10 @@
 <template>
   <div>
     Button示例
-    <or-button>示例</or-button>
+    <or-button @click="onClick"
+               @mousemove="onClick"
+               @focus="onClick"
+               size="small">示例</or-button>
   </div>
 </template>
 
@@ -12,6 +15,15 @@ export default {
   name: 'ButtonDemo',
   components: {
     OrButton
+  },
+  setup() {
+    const onClick = () => {
+      console.log(111);
+    }
+
+    return {
+      onClick
+    }
   }
 }
 </script>
