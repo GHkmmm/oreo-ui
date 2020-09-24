@@ -25,6 +25,12 @@
       <or-button type="suc">示例</or-button>
       <or-button type="suc" size="small">示例</or-button>
     </div>
+    <h2>示例3</h2>
+    <div>
+      <or-button disabled>示例</or-button>
+      <or-button type="primary" disabled>示例</or-button>
+      <or-button type="suc" disabled>示例</or-button>
+    </div>
   </div>
 </template>
 

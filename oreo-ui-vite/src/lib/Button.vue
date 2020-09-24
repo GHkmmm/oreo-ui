@@ -1,5 +1,7 @@
 <template>
-  <button class="or-button" :class="classes">
+  <button class="or-button" 
+          :class="classes" 
+          :disabled="disabled">
     <slot></slot> 
   </button>
 </template>
@@ -19,14 +21,18 @@ export default {
     size: {
       type: String,
       default: 'nomarl'
+    },
+    disabled: {
+      type: Boolean
     }
   },
   setup(props) {
-    const { type, size } = props
+    const { type, size, disabled } = props
     const classes = computed(() => {
       return {
         [`or-button-${type}`]: type,
-        [`or-button-${size}`]: size
+        [`or-button-${size}`]: size,
+        [`or-button-disabled`]: disabled
       }
     })
 
@@ -42,6 +48,7 @@ $h: 32px;
 $border-color:#d9d9d9;
 $color: #333;
 $blue:口 #40a9ff;
+$grey: #d9d9d9;
 $radius: 4px;
 $primary-color: #106cff;
 $success-color: #00b246;
@@ -107,5 +114,13 @@ $warning-color: #ffbf00;
   font-size: 8px;
   height: 22px;
   width: 40px;
+}
+/**
+  按钮失效样式
+*/
+.or-button-disabled {
+  cursor: not-allowed;
+  color: $grey;
+  opacity: .65;
 }
 </style>
