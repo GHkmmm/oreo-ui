@@ -1,7 +1,7 @@
 <template>
-  <div class="or-switch" @click="toggle" :class="{actived: isOn}">
-    <div class="circle"></div>
-  </div>
+  <button class="or-switch" @click="toggle" :class="{actived: isOn}">
+    <span class="circle"></span>
+  </button>
 </template>
 
 <script>
@@ -26,22 +26,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.or-switch{
-  width: 50px;
-  height: 25px;
-  background-color: #eee;
-  border-radius: 20px;
+$h: 22px;
+$h2: $h - 4px;
+button {
+  height: $h;
+  width: $h*2;
+  border: none;
+  background: #eee;
+  border-radius: $h/2;
   position: relative;
-  transition: .6s;
 }
-.circle{
-  width: 23px;
-  height: 23px;
-  border-radius: 100%;
-  background-color: #fff;
+span{
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 2px;
-  transition: .3s;
+  height: $h2;
+  width: $h2;
+  background: white;
+  border-radius: $h2/2;
+}
+
+button:hover {
+  background: #00d45b;
+  span {
+    left: calc(100% - #{$h2} - 2px);
+    transition: .3s;
+  }
 }
 </style>
