@@ -1,22 +1,38 @@
 <template>
-  <button class="or-button" :class="`or-theme-${theme}`">
+  <button class="or-button" :class="classes">
     <slot></slot> 
   </button>
 </template>
 
 <script lang="ts">
+import { computed } from 'vue';
+
 export default {
   name: 'OrButton',
   // 取消默认绑定
   // inheritAttrs: false,
   props: {
-    theme: {
+    type: {
       type: String,
-      default: 'button'
+      default: 'default'
+    },
+    size: {
+      type: String,
+      default: 'nomarl'
     }
   },
-  setup() {
-    
+  setup(props) {
+    const { type, size } = props
+    const classes = computed(() => {
+      return {
+        [`or-button-${type}`]: type,
+        [`or-button-${size}`]: size
+      }
+    })
+
+    return {
+      classes
+    }
   }
 }
 </script>
@@ -27,6 +43,10 @@ $border-color:#d9d9d9;
 $color: #333;
 $blue:口 #40a9ff;
 $radius: 4px;
+$primary-color: #106cff;
+$success-color: #00b246;
+$danger-color: #ed0036;
+$warning-color: #ffbf00;
 .or-button {
   box-sizing: border-box;
   height: $h;
@@ -55,5 +75,37 @@ $radius: 4px;
   &::-moz-focus-inner {
     border: 0;
   }
+}
+/**
+  type属性相关样式
+*/
+.or-button-primary{
+  background-color: $primary-color;
+  color: #fff;
+}
+.or-button-suc{
+  background-color: $success-color;
+  color: #fff;
+}
+.or-button-danger{
+  background-color: $danger-color;
+  color: #fff;
+}
+.or-button-warn{
+  background-color: $warning-color;
+  color: #fff;
+}
+/**
+  size属性相关样式
+*/
+.or-button-big {
+  font-size: 24px;
+  height: 44px;
+  width: 80px;
+}
+.or-button-small {
+  font-size: 8px;
+  height: 22px;
+  width: 40px;
 }
 </style>
