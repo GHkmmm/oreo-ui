@@ -1,12 +1,18 @@
 <template>
   <div>
-    这是Button组件
+    Button示例
+    <or-button>示例</or-button>
   </div>
 </template>
 
 <script>
-export default {
+import OrButton from '../lib/Button.vue';
 
+export default {
+  name: 'ButtonDemo',
+  components: {
+    OrButton
+  }
 }
 </script>
 

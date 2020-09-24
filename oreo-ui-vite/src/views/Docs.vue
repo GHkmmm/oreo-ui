@@ -31,11 +31,15 @@ export default {
   display: flex;
   padding-left: 12%;
   padding-right: 12%;
+  position: relative;
   aside{
     width: 260px;
     height: calc(100vh - 60px);
     padding: 35px 0px 60px 20px;
     border-right: 1px solid #eee;
+    background: #eee;
+    position: absolute;
+    z-index: 99;
     ol{
       list-style: none;
     }
