@@ -2,6 +2,7 @@
   <button class="or-button" 
           :class="classes" 
           :disabled="disabled">
+    <span v-if="loading" class="or-button-loading-indicator"></span>
     <slot></slot> 
   </button>
 </template>
@@ -23,6 +24,9 @@ export default {
       default: 'nomarl'
     },
     disabled: {
+      type: Boolean
+    },
+    loading: {
       type: Boolean
     }
   },
@@ -47,7 +51,7 @@ export default {
 $h: 32px;
 $border-color:#d9d9d9;
 $color: #333;
-$blue:口 #40a9ff;
+$blue: #106cff;
 $grey: #d9d9d9;
 $radius: 4px;
 $primary-color: #106cff;
@@ -73,8 +77,8 @@ $warning-color: #ffbf00;
   }
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: $blue;
+    // color: $blue;
+    // border-color: $blue;
   }
   &:focus {
     outline: none;
@@ -122,5 +126,27 @@ $warning-color: #ffbf00;
   cursor: not-allowed;
   color: $grey;
   opacity: .65;
+}
+/**
+  loading样式
+*/
+.or-button-loading-indicator {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+  border-radius: 8px;
+  border-color: $blue $blue $blue transparent;
+  border-style: solid;
+  border-width: 2px;
+  animation: or-spin 1s infinite linear;
+}
+@keyframes or-spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg)
+  }
 }
 </style>
