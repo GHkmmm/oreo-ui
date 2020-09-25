@@ -1,12 +1,17 @@
 <template>
   <div>
-    这是Dialogs组件
+    <or-dialog></or-dialog>
   </div>
 </template>
 
 <script>
-export default {
+import OrDialog from '../lib/Dialog.vue';
 
+export default {
+  name: 'OrDialogDemo',
+  components: {
+    OrDialog
+  }
 }
 </script>
 
