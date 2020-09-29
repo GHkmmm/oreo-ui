@@ -1,11 +1,15 @@
 <template>
   <div>
+    <h1>Dialog组件</h1>
+    <h2>示例1</h2>
     <or-button @click="toggle">触发</or-button>
     <or-dialog v-model:visible="visible" 
                :closeOnClickOverlay="false"
                :ok="f1" :cancel="f2">
       我是内容
     </or-dialog>
+    <h2>示例2</h2>
+    <or-button @click="showDialog">触发</or-button>
   </div>
 </template>
 
@@ -13,6 +17,8 @@
 import OrDialog from '../lib/Dialog.vue';
 import OrButton from '../lib/Button.vue';
 import { ref } from 'vue';
+
+import { openDialog } from '../lib/openDialog';
 
 export default {
   name: 'OrDialogDemo',
@@ -25,6 +31,19 @@ export default {
     const toggle = () => {
       visible.value = !visible.value
     }
+    const showDialog = () => {
+      openDialog({
+        title: '我是标题',
+        content: '我是内容',
+        ok() {
+          return false
+        },
+        cancel() {
+          
+        }
+      })
+    }
+
     const f1 = () => {
       return false
     }
@@ -34,7 +53,8 @@ export default {
       visible,
       toggle,
       f1,
-      f2
+      f2,
+      showDialog
     }
   }
 }
