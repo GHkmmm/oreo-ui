@@ -1,7 +1,11 @@
 <template>
   <div>
     <or-button @click="toggle">触发</or-button>
-    <or-dialog :visible="visible"></or-dialog>
+    <or-dialog v-model:visible="visible" 
+               :closeOnClickOverlay="false"
+               :ok="f1" :cancel="f2">
+      我是内容
+    </or-dialog>
   </div>
 </template>
 
@@ -21,10 +25,16 @@ export default {
     const toggle = () => {
       visible.value = !visible.value
     }
+    const f1 = () => {
+      return false
+    }
+    const f2 = () => {}
 
     return {
       visible,
-      toggle
+      toggle,
+      f1,
+      f2
     }
   }
 }

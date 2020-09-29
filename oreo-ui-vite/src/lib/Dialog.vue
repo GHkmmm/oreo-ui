@@ -1,6 +1,6 @@
 <template>
   <transition name="container-transition">
-    <div class="or-dialog-container" v-show="visible">
+    <div class="or-dialog-container" v-show="visible" @click.self="onClickOverlay">
       <transition name="dialog-transition">
         <div class="or-dialog" v-show="visible">
           <header class="or-dialog-header">
@@ -17,8 +17,8 @@
           </main>
           <footer class="or-dialog-footer">
             <slot name="footer">
-              <or-button type="primary">OK</or-button>
-              <or-button>Cancel</or-button>
+              <or-button type="primary" @click="ok">确认</or-button>
+              <or-button @click="cancel">取消</or-button>
             </slot>
           </footer>
         </div>
@@ -27,7 +27,7 @@
   </transition>
 </template>
 
-<script lang-"ts">
+<script lang="ts">
 import OrButton from './Button.vue';
 
 export default {
@@ -47,15 +47,37 @@ export default {
     visible: {
       type: Boolean,
       default: false
-    }
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: Function,
+    cancel: Function
   },
-  setup(props) {
+  setup(props, context) {
     const closeDialog = () => {
-      this
+      context.emit('update:visible', false)
+    }
+    const onClickOverlay = () => {
+      props.closeOnClickOverlay ? closeDialog() : null
+    }
+    const ok = () => {
+      if(props.ok && props.ok() != false) {
+        closeDialog()
+      }
+    }
+    const cancel = () => {
+      if(props.cancel && props.cancel() != false) {
+        closeDialog()
+      }
     }
 
     return {
-      closeDialog
+      closeDialog,
+      onClickOverlay,
+      ok,
+      cancel
     }
   }
 }
@@ -126,16 +148,16 @@ $border-color: #d9d9d9;
   }
 }
 .dialog-transition-enter-active {
-  animation: scale .3s;
+  animation: scale .25s;
 }
 .dialog-transition-leave-active {
-  animation: scale .3s reverse;
+  animation: scale .25s reverse;
 }
 .container-transition-enter-active{
-  animation: fade .3s;
+  animation: fade .25s;
 }
 .container-transition-leave-active{
-  animation: fade .3s reverse;
+  animation: fade .25s reverse;
 }
 @keyframes scale {
   0%{
