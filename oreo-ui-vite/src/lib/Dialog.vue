@@ -1,30 +1,32 @@
 <template>
-  <transition name="container-transition">
-    <div class="or-dialog-container" v-show="visible" @click.self="onClickOverlay">
-      <transition name="dialog-transition">
-        <div class="or-dialog" v-show="visible">
-          <header class="or-dialog-header">
-            <slot name="title">
-              <span class="or-dialog-title">
-                {{title}}
-              </span>
-            </slot>
-            <i class="or-dialog-close" @click="closeDialog"></i>
-          </header>
-          <main class="or-dialog-content">
-            <slot>
-            </slot>
-          </main>
-          <footer class="or-dialog-footer">
-            <slot name="footer">
-              <or-button type="primary" @click="ok">确认</or-button>
-              <or-button @click="cancel">取消</or-button>
-            </slot>
-          </footer>
-        </div>
-      </transition>
-    </div>
-  </transition>
+  <teleport to="body">
+    <transition name="container-transition">
+      <div class="or-dialog-container" v-show="visible" @click.self="onClickOverlay">
+        <transition name="dialog-transition">
+          <div class="or-dialog" v-show="visible">
+            <header class="or-dialog-header">
+              <slot name="title">
+                <span class="or-dialog-title">
+                  {{title}}
+                </span>
+              </slot>
+              <i class="or-dialog-close" @click="closeDialog"></i>
+            </header>
+            <main class="or-dialog-content">
+              <slot>
+              </slot>
+            </main>
+            <footer class="or-dialog-footer">
+              <slot name="footer">
+                <or-button type="primary" @click="ok">确认</or-button>
+                <or-button @click="cancel">取消</or-button>
+              </slot>
+            </footer>
+          </div>
+        </transition>
+      </div>
+    </transition>
+  </teleport>
 </template>
 
 <script lang="ts">
