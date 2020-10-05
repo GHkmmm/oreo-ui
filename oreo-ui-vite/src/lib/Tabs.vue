@@ -6,7 +6,7 @@
            @click="changeTab(index)" 
            v-for="(t, index) in titles" 
            :key="index"
-           :ref="el => { if (el) navItems[index] = el }">{{t}}</div>
+           :ref="el => { if (currentIndex === index) selectedItem = el }">{{t}}</div>
       <div class="or-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="or-tabs-content">
@@ -21,29 +21,28 @@
 
 <script lang="ts">
 import OrTab from './Tab.vue';
-import { ref, onMounted, onUpdated } from 'vue';
+import { ref, onMounted, watchEffect } from 'vue';
 
 export default {
   name: 'OrTabs',
   setup(props, context) {
     let currentIndex = ref(0)
-    const navItems = ref<HTMLDivElement[]>([])
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
     const setIndicator = ()=>{
-      const divs = navItems.value
-      const result = divs.filter(div => div.classList.contains('selected'))[0]
-      // console.log({result});
-      const {width} = result.getBoundingClientRect()
+      console.log(selectedItem);
+      const {width} = selectedItem.value.getBoundingClientRect()
       // console.log(indicator);
       indicator.value.style.width = width + 'px'
       const {left:containerLeft} = container.value.getBoundingClientRect()
-      const {left:resultLeft} = result.getBoundingClientRect()
+      const {left:resultLeft} = selectedItem.value.getBoundingClientRect()
       const left = resultLeft - containerLeft
       indicator.value.style.left = left + 'px'
     }
-    onMounted(setIndicator)
-    onUpdated(setIndicator)
+    onMounted(()=>{
+      watchEffect(setIndicator)
+    })
 
     const defaults = context.slots.default()
     const changeTab = (index)=>{
@@ -65,7 +64,7 @@ export default {
       titles,
       currentIndex,
       changeTab,
-      navItems,
+      selectedItem,
       indicator,
       container
     }
