@@ -1,11 +1,13 @@
 <template>
   <div class="or-tabs">
-    <div class="or-tabs-nav">
+    <div class="or-tabs-nav" ref="container">
       <div class="or-tabs-nav-item" 
            :class="{selected: currentIndex === index}"
            @click="changeTab(index)" 
            v-for="(t, index) in titles" 
-           :key="index">{{t}}</div>
+           :key="index"
+           :ref="el => { if (el) navItems[index] = el }">{{t}}</div>
+      <div class="or-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="or-tabs-content">
       <component v-for="(c, index) in defaults" 
@@ -17,14 +19,32 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import OrTab from './Tab.vue';
-import { ref } from 'vue';
+import { ref, onMounted, onUpdated } from 'vue';
 
 export default {
   name: 'OrTabs',
   setup(props, context) {
     let currentIndex = ref(0)
+    const navItems = ref<HTMLDivElement[]>([])
+    const indicator = ref<HTMLDivElement>(null)
+    const container = ref<HTMLDivElement>(null)
+    const setIndicator = ()=>{
+      const divs = navItems.value
+      const result = divs.filter(div => div.classList.contains('selected'))[0]
+      // console.log({result});
+      const {width} = result.getBoundingClientRect()
+      // console.log(indicator);
+      indicator.value.style.width = width + 'px'
+      const {left:containerLeft} = container.value.getBoundingClientRect()
+      const {left:resultLeft} = result.getBoundingClientRect()
+      const left = resultLeft - containerLeft
+      indicator.value.style.left = left + 'px'
+    }
+    onMounted(setIndicator)
+    onUpdated(setIndicator)
+
     const defaults = context.slots.default()
     const changeTab = (index)=>{
       currentIndex.value = index
@@ -44,7 +64,10 @@ export default {
       defaults,
       titles,
       currentIndex,
-      changeTab
+      changeTab,
+      navItems,
+      indicator,
+      container
     }
   }
 }
@@ -71,6 +94,15 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 50px;
+      transition: all .25s;
     }
   }
   &-content {
