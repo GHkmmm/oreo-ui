@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <h1>Dialog组件</h1>
-    <h2>示例1</h2>
+  <div class="dialog-demo">
+    <header>Dialog组件</header>
+    <div class="dialog-demo-title">通过引入组件触发</div>
     <or-button @click="toggle">触发</or-button>
     <or-dialog v-model:visible="visible" 
                :closeOnClickOverlay="false"
                :ok="f1" :cancel="f2">
       我是内容
     </or-dialog>
-    <h2>示例2</h2>
+    <div class="dialog-demo-title">使用openDialog函数触发</div>
     <or-button @click="showDialog">触发</or-button>
   </div>
 </template>
@@ -60,6 +60,17 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.dialog-demo {
+  header {
+    font-size: 36px;
+  }
+  .dialog-demo-title {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+  * {
+    margin: 5px 0;
+  }
+}
 </style>
