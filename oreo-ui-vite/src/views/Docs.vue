@@ -1,6 +1,12 @@
 <template>
   <div class="docs">
     <aside v-if="menuVisible">
+      <h2>文档</h2>
+      <ol>
+        <li><router-link to="/docs/introduce">介绍</router-link></li>
+        <li><router-link to="/docs/install">安装</router-link></li>
+        <li><router-link to="/docs/start">开始使用</router-link></li>
+      </ol>
       <h2>组件列表</h2>
       <ol>
         <li><router-link to="/docs/switch">Switch组件</router-link></li>
@@ -34,12 +40,23 @@ export default {
   position: relative;
   aside{
     width: 260px;
-    height: calc(100vh - 60px);
     padding: 35px 0px 60px 20px;
     position: relative;
     z-index: 99;
+    box-sizing: border-box;
+    h2 {
+      margin-top: 20px;
+    }
     ol{
       list-style: none;
+      li {
+        text-indent: 2em;
+        margin: 5px;
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
     }
   }
   .docs-content{

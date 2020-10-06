@@ -1,7 +1,7 @@
 <template>
   <div class="switch-demo">
     <header>Switch组件</header>
-    <div class="title1">基本样式</div>
+    <div class="switch-demo-title">基本样式</div>
     <div class="switch-demo-content">
       <or-switch v-model:is-on="isOn"/>
       <div><or-button type="primary">查看代码</or-button></div>
@@ -29,17 +29,15 @@ export default {
 
 <style lang="scss">
 .switch-demo {
-  * {
-    margin: 5px 0;
-  }
   header {
     font-size: 36px;
   }
-  .title1 {
+  .switch-demo-title {
     font-size: 24px;
+    margin-top: 5px;
   }
   .switch-demo-content {
-
+    margin-top: 5px;
   }
 }
 
