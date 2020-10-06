@@ -36,9 +36,7 @@ export default {
     width: 260px;
     height: calc(100vh - 60px);
     padding: 35px 0px 60px 20px;
-    border-right: 1px solid #eee;
-    background: #eee;
-    position: absolute;
+    position: relative;
     z-index: 99;
     ol{
       list-style: none;
@@ -46,7 +44,13 @@ export default {
   }
   .docs-content{
     width: 100%;
-    padding: 10px;
+    height: 88%;
+    margin: auto;
+    padding: 30px;
+    border-radius: 58px;
+    background: linear-gradient(145deg, rgba(238, 238, 238, 0.904), #fff);
+    box-shadow: -20px -20px 60px #fff,
+                20px 20px 60px #D9D9D9;
   }
   @media (max-width: 740px) {
     aside{

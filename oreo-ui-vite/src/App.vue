@@ -1,7 +1,7 @@
 <template>
   <div>
     <tab-nav />
-    <router-view />
+    <router-view class="router-view" />
   </div>
 </template>
 
@@ -28,5 +28,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+$top: 110px;
+
+.router-view {
+  height: calc(100vh - #{$top});
+  position: relative;
+  top: $top;
+}
 </style>

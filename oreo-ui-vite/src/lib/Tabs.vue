@@ -10,18 +10,14 @@
       <div class="or-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="or-tabs-content">
-      <component v-for="(c, index) in defaults" 
-                 :is="c" 
-                 :key="index"
-                 class="or-tabs-content-item"
-                 :class="{selected: currentIndex === index}" />
+      <component :is="current" :key="current.props.title" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import OrTab from './Tab.vue';
-import { ref, onMounted, watchEffect } from 'vue';
+import { ref, onMounted, watchEffect, computed } from 'vue';
 
 export default {
   name: 'OrTabs',
@@ -31,7 +27,7 @@ export default {
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
     const setIndicator = ()=>{
-      console.log(selectedItem);
+      // console.log(selectedItem);
       const {width} = selectedItem.value.getBoundingClientRect()
       // console.log(indicator);
       indicator.value.style.width = width + 'px'
@@ -55,12 +51,20 @@ export default {
       }
     })
 
+    const current = computed(()=>{
+      return defaults.filter((tag, index) => {
+        if(index === currentIndex.value){
+          return tag
+        }
+      })[0]
+    })
     const titles = defaults.map((tag) => {
       return tag.props.title
     })
 
     return {
       defaults,
+      current,
       titles,
       currentIndex,
       changeTab,
@@ -106,12 +110,6 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
   }
 }
 </style>

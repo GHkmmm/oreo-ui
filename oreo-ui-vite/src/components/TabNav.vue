@@ -7,7 +7,6 @@
     </div>
     <div class="logo">
       <img src="../assets/logo.png" alt="">
-      <span>OreoUI</span>
     </div>
     <ul class="list">
       <li><router-link to="/home">主页</router-link></li>
@@ -36,13 +35,19 @@ export default {
 
 <style lang="scss">
 .tab-nav{
-  width: 100%;
+  width: 90%;
   height: 60px;
-  background-color: #fbfbfb;
-  color: #26211F;
-  box-shadow: 0px 2px 5px #999;
+  border-radius: 58px;
+  background: linear-gradient(170deg, #006fe6cb, #0083ff);
+  color: #fff;
+  box-shadow: -20px -20px 60px #fff,
+              20px 20px 60px #D9D9D9;
   display: flex;
-  position: relative;
+  position: fixed;
+  z-index: 95;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
   .menu{
     width: 50px;
     display: none;
@@ -52,17 +57,18 @@ export default {
     transform: translateY(-50%);
     cursor: pointer;
     div{
-      width: 25px;
-      height: 3px;
-      margin: 4px;
-      background-color: #666;
+      width: 4px;
+      height: 4px;
+      margin: 3px;
+      background-color: #fff;
+      border-radius: 100%;
     }
   }
   .logo{
     display: flex;
     margin: auto auto auto 12%;
     img{
-      height: 40px;
+      height: 29px;
     }
     span{
       line-height: 40px;
@@ -82,12 +88,12 @@ export default {
       cursor: pointer;
       a{
         text-decoration: none;
-        color: #26211F
+        color: #fff
       }
     }
   }
   @media (max-width:740px) {
-    .menu{display: inline-block}
+    .menu{display: flex;}
     .logo{margin: auto}
     .list{display: none}
   }

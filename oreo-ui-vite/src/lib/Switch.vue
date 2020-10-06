@@ -32,7 +32,7 @@ $h2: $h - 4px;
   height: $h;
   width: $h*2;
   border: none;
-  background: #eee;
+  background: #dededf;
   border-radius: $h/2;
   position: relative;
   transition: .4s;
