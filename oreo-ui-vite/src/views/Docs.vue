@@ -35,12 +35,12 @@ export default {
 <style lang="scss">
 .docs{
   display: flex;
-  padding-left: 12%;
-  padding-right: 12%;
+  width: 90%;
+  margin: auto;
   position: relative;
   aside{
     width: 260px;
-    padding: 35px 0px 60px 20px;
+    padding: 35px 0px 60px 50px;
     position: relative;
     z-index: 99;
     box-sizing: border-box;

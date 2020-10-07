@@ -180,7 +180,7 @@ export default {
       .go-github-btn,
       .go-docs-btn {
         width: 115px;
-        height: 42px;
+        line-height: 42px;
       }
     }
   }

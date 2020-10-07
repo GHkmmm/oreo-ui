@@ -1,13 +1,13 @@
 <template>
   <div class="tab-nav">
-    <div class="menu" @click="toggleMenu">
+    <div class="menu" @click="toggleMenu" v-if="toggleMenuButtonVisible">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <div class="logo">
+    <router-link class="logo" to="/">
       <img src="../assets/logo.png" alt="">
-    </div>
+    </router-link>
     <ul class="list">
       <li><router-link to="/home">主页</router-link></li>
       <li><router-link to="/docs">文档</router-link></li>
@@ -22,6 +22,12 @@ import { inject, Ref } from 'vue'
 
 export default {
   name: 'TabNav',
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const menuVisible = inject<Ref<boolean>>
     ('xxx')
@@ -38,10 +44,6 @@ export default {
   width: 90%;
   height: 60px;
   border-radius: 58px;
-  background: linear-gradient(170deg, #006fe6cb, #0083ff);
-  color: #fff;
-  box-shadow: -20px -20px 60px #fff,
-              20px 20px 60px #D9D9D9;
   display: flex;
   position: fixed;
   z-index: 95;
@@ -60,7 +62,7 @@ export default {
       width: 4px;
       height: 4px;
       margin: 3px;
-      background-color: #fff;
+      background-color: #000;
       border-radius: 100%;
     }
   }
@@ -68,7 +70,7 @@ export default {
     display: flex;
     margin: auto auto auto 12%;
     img{
-      height: 29px;
+      height: 35px;
     }
     span{
       line-height: 40px;
@@ -88,13 +90,13 @@ export default {
       cursor: pointer;
       a{
         text-decoration: none;
-        color: #fff
+        color: #000
       }
     }
   }
   @media (max-width:740px) {
     .menu{display: flex;}
-    .logo{margin: auto}
+    .logo{margin: auto 20px auto auto}
     .list{display: none}
   }
 }
