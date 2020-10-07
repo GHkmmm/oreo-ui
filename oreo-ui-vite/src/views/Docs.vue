@@ -3,7 +3,7 @@
     <aside v-if="menuVisible">
       <h2>文档</h2>
       <ol>
-        <li><router-link to="/docs/introduce">介绍</router-link></li>
+        <li><router-link to="/docs/intro">介绍</router-link></li>
         <li><router-link to="/docs/install">安装</router-link></li>
         <li><router-link to="/docs/start">开始使用</router-link></li>
       </ol>

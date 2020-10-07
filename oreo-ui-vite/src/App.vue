@@ -21,16 +21,10 @@ export default {
     const menuVisible = ref(width <= 740 ? false : true)
     provide('xxx', menuVisible) // 标记为所有后代均可使用menuVisible这个变量
     router.afterEach((to)=>{
-      console.log(to);
       if(width<=740){
         menuVisible.value = false
       }
       toggleMenuButtonVisible.value = to.path.match(/\/docs\//)?true:false
-      // if(to.path.match(/\/docs\//)) {
-      //   toggleMenuButtonVisible = true
-      // }else {
-      //   toggleMenuButtonVisible = true
-      // }
     })
 
     return {
