@@ -56,6 +56,9 @@ export default {
           text-decoration: none;
           color: #000;
         }
+        .router-link-active {
+          color: #007aff
+        }
       }
     }
   }
