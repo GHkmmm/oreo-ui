@@ -40,7 +40,7 @@ const router = createRouter({
         },
         {
           path: '',
-          redirect: '/docs/switch'
+          redirect: '/docs/intro'
         },
         {
           path: 'switch',
