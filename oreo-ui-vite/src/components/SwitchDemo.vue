@@ -7,7 +7,9 @@
         <switch1-demo />
       </div>
       <or-button>查看代码</or-button>
-      <pre>{{Switch1Demo.__sourceCode}}</pre>
+      <pre class="language-html">
+        <code v-html="Prism.highlight(Switch1Demo.__sourceCode, Prism.languages.html, 'html')"></code>
+      </pre>
     </div>
     <div class="demo">
       <div class="switch-demo-title">支持disabled</div>
@@ -15,7 +17,9 @@
         <switch2-demo />
       </div>
       <or-button>查看代码</or-button>
-      <pre>{{Switch2Demo.__sourceCode}}</pre>
+      <pre>
+        <code class="language-html" v-html="Prism.highlight(Switch2Demo.__sourceCode, Prism.languages.html, 'html')"></code>
+      </pre>
     </div>
   </div>
 </template>
@@ -26,6 +30,11 @@ import OrButton from '../lib/Button.vue';
 import Switch1Demo from './Switch1.demo.vue';
 import Switch2Demo from './Switch2.demo.vue';
 import { ref } from 'vue';
+
+import 'prismjs';
+import 'prismjs/themes/prism-okaidia.css'
+const Prism = window.Prism
+console.log(Prism);
 
 export default {
   name: 'SwitchDemo',
@@ -38,7 +47,8 @@ export default {
   setup() {
     return {
       Switch1Demo,
-      Switch2Demo
+      Switch2Demo,
+      Prism
     }
   }
 }

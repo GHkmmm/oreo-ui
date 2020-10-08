@@ -71,6 +71,7 @@ export default {
     background: linear-gradient(145deg, rgba(238, 238, 238, 0.904), #fff);
     box-shadow: -20px -20px 60px #fff,
                 20px 20px 60px #D9D9D9;
+    overflow: scroll;
   }
   @media (max-width: 740px) {
     aside{
