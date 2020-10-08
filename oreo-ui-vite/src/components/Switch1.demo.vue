@@ -1,5 +1,9 @@
+<demo>
+常规用法
+</demo>
+
 <template>
-  <or-switch :v-model="bool" />
+  <or-switch v-model:value="bool" />
 </template>
 
 <script>
@@ -11,15 +15,11 @@ export default {
     OrSwitch
   },
   setup() {
-    const bool = ref(true)
-    
+    const bool = ref(false)
+
     return {
       bool
     }
   }
 }
 </script>
-
-<style>
-
-</style>

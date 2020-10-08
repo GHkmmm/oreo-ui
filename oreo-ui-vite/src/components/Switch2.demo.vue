@@ -1,3 +1,7 @@
+<demo>
+  支持disabled
+</demo>
+
 <template>
   <or-switch v-model="bool" disabled/>
 </template>
@@ -18,7 +22,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

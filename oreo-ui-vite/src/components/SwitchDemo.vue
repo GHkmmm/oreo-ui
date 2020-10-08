@@ -7,6 +7,7 @@
         <switch1-demo />
       </div>
       <or-button>查看代码</or-button>
+      <pre>{{Switch1Demo.__sourceCode}}</pre>
     </div>
     <div class="demo">
       <div class="switch-demo-title">支持disabled</div>
@@ -14,6 +15,7 @@
         <switch2-demo />
       </div>
       <or-button>查看代码</or-button>
+      <pre>{{Switch2Demo.__sourceCode}}</pre>
     </div>
   </div>
 </template>
@@ -34,8 +36,10 @@ export default {
     Switch2Demo
   },
   setup() {
-    const isOn = ref(false)
-    return {isOn}
+    return {
+      Switch1Demo,
+      Switch2Demo
+    }
   }
 }
 </script>
