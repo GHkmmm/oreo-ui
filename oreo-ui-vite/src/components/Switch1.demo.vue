@@ -3,7 +3,7 @@
 </demo>
 
 <template>
-  <or-switch v-model:value="bool" />
+  <or-switch v-model:isOn="bool" />
 </template>
 
 <script>
