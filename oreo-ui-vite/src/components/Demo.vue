@@ -5,11 +5,11 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <or-button>查看代码</or-button>
+      <or-button @click="codeVisible = !codeVisible">查看代码</or-button>
     </div>
-    <div class="demo-code">
+    <div class="demo-code" v-if="codeVisible">
       <pre class="language-html">
-        <code v-html="Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')"></code>
+        <code v-html="html"></code>
       </pre>
     </div>
   </div>
@@ -22,6 +22,7 @@ import Switch2Demo from './Switch2.demo.vue';
 
 import 'prismjs';
 import 'prismjs/themes/prism-okaidia.css'
+import { computed, ref } from 'vue';
 const Prism = (window as any).Prism
 
 export default {
@@ -31,9 +32,16 @@ export default {
   components: {
     OrButton
   },
-  setup() {
+  setup(props) {
+    const html = computed(()=>{
+      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
+    })
+    const codeVisible = ref(false)
+
     return {
-      Prism
+      Prism,
+      html,
+      codeVisible
     }
   }
 }
