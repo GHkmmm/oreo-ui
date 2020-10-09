@@ -1,0 +1,6 @@
+export { default as OrSwitch } from './Switch.vue'
+export { default as OrButton } from './Button.vue'
+export { default as OrTabs } from './Tabs.vue'
+export { default as OrTab } from './Tab.vue'
+export { default as OrDialog } from './Dialog.vue'
+export { openDialog as openDialog } from './openDialog'
