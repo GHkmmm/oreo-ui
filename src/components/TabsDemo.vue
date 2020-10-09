@@ -27,9 +27,5 @@ export default {
   header {
     font-size: 36px;
   }
-  .tabs-demo-title {
-    font-size: 24px;
-    margin-top: 5px;
-  }
 }
 </style>

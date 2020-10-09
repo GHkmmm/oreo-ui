@@ -30,10 +30,6 @@ export default {
   header {
     font-size: 36px;
   }
-  .dialog-demo-title {
-    font-size: 24px;
-    margin-top: 5px;
-  }
   * {
     margin: 5px 0;
   }

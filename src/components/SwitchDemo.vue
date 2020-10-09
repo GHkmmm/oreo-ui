@@ -31,14 +31,6 @@ export default {
   header {
     font-size: 36px;
   }
-  .switch-demo-title {
-    font-size: 24px;
-    margin: 5px 0;
-    margin-top: 10px;
-  }
-  .switch-demo-content {
-    margin: 5px 0;
-  }
 }
 
 </style>
