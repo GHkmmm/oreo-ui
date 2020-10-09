@@ -1,23 +1,23 @@
 <template>
   <div class="tabs-demo">
     <header>Tabs示例</header>
-    <div class="tabs-demo-title">示例1</div>
-    <or-tabs>
-      <or-tab title="导航1">内容1</or-tab>
-      <or-tab title="标题较长的导航2">内容2</or-tab>
-    </or-tabs>
+    <Demo :component="Tabs1Demo" />
   </div>
 </template>
 
 <script lang="ts">
-import OrTabs from '../lib/Tabs.vue';
-import OrTab from '../lib/Tab.vue';
+import Demo from './Demo.vue';
+import Tabs1Demo from './TabsDemo/Tabs1.demo.vue';
 
 export default {
   name: 'TabsDemo',
   components: {
-    OrTabs,
-    OrTab
+    Demo
+  },
+  setup() {
+    return {
+      Tabs1Demo
+    }
   }
 }
 </script>

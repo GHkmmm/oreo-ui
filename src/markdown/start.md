@@ -6,7 +6,7 @@
 
 然后在你的代码中写入下面的代码
 
-```js
+```
 import { OrButton, OrTabs, OrSwitch, OrDialog } from "oreo-ui"
 ```
 
@@ -18,7 +18,7 @@ import { OrButton, OrTabs, OrSwitch, OrDialog } from "oreo-ui"
 
 代码示例
 
-```vue
+```
 <template>
   <div>
     <or-button>按钮</or-button>

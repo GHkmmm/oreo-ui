@@ -1,60 +1,25 @@
 <template>
   <div class="dialog-demo">
     <header>Dialog组件</header>
-    <div class="dialog-demo-title">通过引入组件触发</div>
-    <or-button @click="toggle">触发</or-button>
-    <or-dialog v-model:visible="visible" 
-               :closeOnClickOverlay="false"
-               :ok="f1" :cancel="f2">
-      我是内容
-    </or-dialog>
-    <div class="dialog-demo-title">使用openDialog函数触发</div>
-    <or-button @click="showDialog">触发</or-button>
+    <Demo :component="Dialog1Demo" />
+    <Demo :component="Dialog2Demo" />
   </div>
 </template>
 
 <script>
-import OrDialog from '../lib/Dialog.vue';
-import OrButton from '../lib/Button.vue';
-import { ref } from 'vue';
-
-import { openDialog } from '../lib/openDialog';
+import Demo from './Demo.vue';
+import Dialog1Demo from './DialogDemo/Dialog1.demo.vue';
+import Dialog2Demo from './DialogDemo/Dialog2.demo.vue';
 
 export default {
   name: 'OrDialogDemo',
   components: {
-    OrDialog,
-    OrButton
+    Demo
   },
   setup() {
-    const visible = ref(false);
-    const toggle = () => {
-      visible.value = !visible.value
-    }
-    const showDialog = () => {
-      openDialog({
-        title: '我是标题',
-        content: '我是内容',
-        ok() {
-          return false
-        },
-        cancel() {
-          
-        }
-      })
-    }
-
-    const f1 = () => {
-      return false
-    }
-    const f2 = () => {}
-
     return {
-      visible,
-      toggle,
-      f1,
-      f2,
-      showDialog
+      Dialog1Demo,
+      Dialog2Demo
     }
   }
 }

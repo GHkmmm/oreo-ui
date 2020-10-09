@@ -8,9 +8,7 @@
       <or-button @click="codeVisible = !codeVisible">查看代码</or-button>
     </div>
     <div class="demo-code" v-if="codeVisible">
-      <pre class="language-html">
-        <code v-html="html"></code>
-      </pre>
+      <pre class="language-html" v-html="html"></pre>
     </div>
   </div>
 </template>
@@ -21,7 +19,7 @@ import Switch1Demo from './Switch1.demo.vue';
 import Switch2Demo from './Switch2.demo.vue';
 
 import 'prismjs';
-import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/themes/prism.css'
 import { computed, ref } from 'vue';
 const Prism = (window as any).Prism
 
@@ -47,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 $border-color: #d9d9d9;
 .demo {
   border: 1px solid $border-color;
