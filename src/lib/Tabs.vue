@@ -37,7 +37,7 @@ export default {
       indicator.value.style.left = left + 'px'
     }
     onMounted(()=>{
-      watchEffect(setIndicator)
+      watchEffect(setIndicator,{flush: 'post'})
     })
 
     const defaults = context.slots.default()
