@@ -16,7 +16,7 @@ yarn add oreo-ui
 
 
 
-下一节：[开始使用](#/doc/start)
+下一节：[开始使用](#/docs/start)
 
 
 
