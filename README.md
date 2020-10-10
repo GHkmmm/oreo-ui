@@ -1,6 +1,7 @@
 <p align="center">
-    <img alt="logo" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh95tgeoy5j30590450sm.jpg" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjk7i1vhvqj308v08vwfy.jpg" width="120" style="margin-bottom: 10px;">
 </p>
+
 
 <h1 align="center">OreoUI</h1>
 
@@ -12,8 +13,6 @@
   &nbsp;
   🚀 <a href="https://www.npmjs.com/package/oreo-neuui" target="_blank">npm</a>
 </p>
-
-
 
 ## 安装
 
