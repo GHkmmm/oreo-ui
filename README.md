@@ -1,13 +1,17 @@
-![logo](https://tva1.sinaimg.cn/large/007S8ZIlgy1gh95tgeoy5j30590450sm.jpg)
+<p align="center">
+    <img alt="logo" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gh95tgeoy5j30590450sm.jpg" width="120" style="margin-bottom: 10px;">
+</p>
 
-<center><h1>OreoUI</h1></center>
+<h1 align="center">OreoUI</h1>
 
-<center>基于Vue3.0+TypeScript构建的UI组件库</center>
+<p align="center" style="color:#0066cc;font-size:18px">基于Vue3.0+TypeScript构建的UI组件库</p>
 
-<div style="display:flex;justify-content:center;">
-  🔥<a style="margin-right:20px" href="https://ghkmmm.gitee.io/oreo-neuui">官方文档</a>
-  🚀<a href="https://www.npmjs.com/package/oreo-neuui">npm</a>
-</div>
+<p align="center">
+  🔥 <a href="https://ghkmmm.gitee.io/oreo-neuui">官方文档</a>
+  &nbsp;
+  &nbsp;
+  🚀 <a href="https://www.npmjs.com/package/oreo-neuui" target="_blank">npm</a>
+</p>
 
 
 
