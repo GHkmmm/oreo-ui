@@ -5,13 +5,13 @@
 打开终端运行下列命令：
 
 ```
-npm install oreo-ui
+npm install oreo-neuui
 ```
 
 或
 
 ```
-yarn add oreo-ui
+yarn add oreo-neuui
 ```
 
 

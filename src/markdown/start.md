@@ -7,7 +7,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import { OrButton, OrTabs, OrSwitch, OrDialog } from "oreo-ui"
+import { OrButton, OrTabs, OrSwitch, OrDialog, openDialog } from "oreo-neuui"
 ```
 
 就可以使用我提供的组件了
@@ -26,7 +26,8 @@ import { OrButton, OrTabs, OrSwitch, OrDialog } from "oreo-ui"
 </template>
 
 <script>
-import { OrButton, OrTabs, OrSwitch, OrDialog } from "oreo-ui"
+import { OrButton, OrTabs, OrSwitch, OrDialog, openDialog } from "oreo-neuui"
+
 export default {
   components: {OrButton}
 }
