@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import OrSwitch from '../../lib/Switch.vue';
+import { OrSwitch } from '../../lib/index';
 import { ref } from 'vue';
 
 export default {

@@ -14,8 +14,7 @@
 </template>
 
 <script>
-import OrDialog from '../../lib/Dialog.vue'
-import OrButton from '../../lib/Button.vue';
+import { OrDialog, OrButton } from '../../lib/index'
 import { ref } from 'vue';
 
 export default {

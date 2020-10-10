@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import OrButton from '../../lib/Button.vue';
+import { OrButton } from '../../lib/index';
 
 export default {
   components: {

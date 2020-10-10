@@ -7,11 +7,8 @@
 </template>
 
 <script>
-import OrDialog from '../../lib/Dialog.vue'
-import OrButton from '../../lib/Button.vue';
+import { OrDialog, OrButton, openDialog } from '../../lib/index'
 import { ref } from 'vue';
-
-import { openDialog } from '../../lib/openDialog';
 
 export default {
   components: {
