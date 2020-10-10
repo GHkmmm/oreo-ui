@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjk7i1vhvqj308v08vwfy.jpg" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjk7i1vhvqj308v08vwfy.jpg" width="180" style="margin-bottom: 10px;">
 </p>
 
 
